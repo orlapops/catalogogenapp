@@ -1,0 +1,39 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" click="_ps.mostrarMenu()">
+            <ion-menu-buton></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header> -->
+<ion-header>
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Lineas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-searchbar [(ngModel)]="buscar_item" (ionInput)="buscar_productos($event)" placeholder="Buscar producto"></ion-searchbar>
+
+    <ion-card *ngFor="let item of items" [routerLink]="['/producto',item]">
+        <!-- <img src='data:image/jpeg;base64,{{item.imagen}}'>-->
+        <img *ngIf="item.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.link_img)" />
+        <img *ngIf="!item.link_img" src="assets/img/imagennodisponible.jpg" />
+        <span class="text-align">
+            <h2>{{item.linea}}{{item.color}}</h2>
+            {{item.nombre}}
+        </span>
+        <ion-button class="position-ver" fill="clear" slot="start">
+            Ver
+        </ion-button>
+    </ion-card>
+
+</ion-content>

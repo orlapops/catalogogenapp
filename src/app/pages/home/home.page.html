@@ -1,0 +1,86 @@
+<ion-header>
+        <!-- <ion-toolbar color="primary" class="animated fadeIn"> -->
+                <ion-toolbar color="bluegrey" class="animated fadeIn">
+            <ion-buttons slot="start">
+                <ion-menu-button color="secondary"></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+                <ion-text color="light">
+                    Catalogo
+                </ion-text>
+            </ion-title>
+            <ion-buttons slot="end">
+                <ion-button *ngIf="_parEmpreProv.usuario_valido && _parEmpreProv.usuario && _parEmpreProv.permite_pedido" routerLink="/carrito">
+                    <ion-icon slot="icon-only" name="cart" color="secondary"></ion-icon>
+                    <ion-badge color="danger" class="carrito-numero" *ngIf="_cs.items.length > 0">
+                        {{ _cs.items.length  }}
+                    </ion-badge>
+                </ion-button>&nbsp; &nbsp;
+                <ion-button icon-left size="small" shape="round" color="secondary" routerLink="/buscar">
+                    <ion-icon name="search"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+
+    <!-- <ion-header  [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+            <ion-toolbar color="bluegrey">
+                    <ion-buttons slot="start">
+                        <ion-button (click)="toggleSideMenu()">
+                            <ion-icon class="menu-icon"  name="md-menu" color="light" slot="start"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                  <ion-title color="light" class="main-header6">O|G</ion-title>
+                    <ion-buttons slot="end">
+                        <ion-button routerLink="/shopping-cart" >
+                            <ion-badge color="danger" *ngIf="_cs.items.length > 0">{{ _cs.items.length }}</ion-badge>
+                            <ion-icon color="light" slot="icon-only" name="ios-cart"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+            </ion-toolbar>
+            <ion-toolbar color="bluegrey">
+               <ion-searchbar mode="ios" color="" placeholder="Search.." (clicks)="openSearchModal()" search-icon="search" ></ion-searchbar>  
+            </ion-toolbar>
+        </ion-header> -->
+        
+        
+        
+    <ion-content  padding class="animated fadeIn fast card-background-page">
+
+<!--*********** Banner  ***********-->
+<ion-slides pager="true" [options]="slideOptsOne" >
+        <ion-slide *ngFor="let banner of banners | async">
+            <img class="image-slide" [src]="banner.image">
+        </ion-slide>
+    </ion-slides>
+    
+    
+    <!--*********** Category  ***********-->
+        <ion-item lines="none">
+                <h1 class="main-header5">Categoria</h1>
+            </ion-item>
+            <div class="top-horizontal-scroll  slide-left  ">
+                    <ion-card tappable class="shop-main-h-card shop-card-s-wide " *ngFor="let category of categories | async" (click)="openDetail('side-menu/shopping/tabs/tab1/shopping-item',category.id)"  >
+                            <div class="card-s-wide-bg ion-text-uppercase" [ngStyle]="{'background-image': 'url(' + category.imagen+ ')'}">
+                                <h2 class="card-s-wide-title"> {{category.nombre}}</h2>                           
+                            </div>
+                    </ion-card>
+            </div>
+    
+        <div text-center *ngIf="nivel1.length === 0" class="lista_vacia">
+            <br> Upsss. No hay nada por aqui
+        </div>
+        <!-- <ion-card detail *ngFor="let item of _ps.categoria.slice(0,10*pagina)" [routerLink]="['/por-categoria',item.cod_catalogo]"> -->
+        <ion-card detail *ngFor="let item of nivel1.slice(0,10*pagina)" [routerLink]="['/por-subtipo',item.codigo.trim(),2,linknivel+item.id.trim()]">
+            <!-- {{linknivel}}
+            {{linknivel+'/'+item.id.trim()}} -->
+            <img *ngIf="item.imagen" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.imagen)" />
+            <img *ngIf="!item.imagen" src="assets/img/imagennodisponible.jpg" />
+            <!-- <div class="card-title" color="light">{{item.nombre}}</div> -->
+        </ion-card>
+    
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles"> </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-content>

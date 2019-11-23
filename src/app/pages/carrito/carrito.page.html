@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Carrito</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div text-center *ngIf="_cs.items.length === 0" class="carrito_vacio">
+
+        <ion-icon name="cart" class="icon-5x"></ion-icon>
+        <br> Su lista esta vacia
+    </div>
+
+    <div *ngIf="_cs.items.length != 0">
+
+        <ion-grid text-center *ngFor="let item of _cs.items; let i = index;">
+
+            <ion-row justify-content-center>
+                <span class="position-cod"><strong>{{item.linea + "  " + item.color}}</strong></span>
+            </ion-row>
+
+            <ion-row align-items-center>
+
+                <ion-col size="6">
+                    <ion-row class="tc_estilo" align-items-center>
+                        <ion-col size="8">Curva/Talla</ion-col>
+                        <ion-col size="4">Cant</ion-col>
+                    </ion-row>
+
+                    <ion-row align-items-center *ngFor="let curva of item.curvas;">
+                        <ion-col *ngIf="curva.cantidad != 0" size="8" class="tc_col_1">
+                            {{curva.curva}}
+                        </ion-col>
+
+                        <ion-col *ngIf="curva.cantidad != 0" size="4" class="tc_col_2">
+                            {{curva.cantidad}}
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row align-items-center *ngFor="let talla of item.tallas;">
+                        <ion-col *ngIf="talla.cantidad != 0" size="8" class="tc_col_1">
+                            {{talla.talla}}
+                        </ion-col>
+
+                        <ion-col *ngIf="talla.cantidad != 0" size="4" class="tc_col_2">
+                            {{talla.cantidad}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="8" class="tc_estilo">
+                            Total pares
+                        </ion-col>
+                        <ion-col size="4" class="tc_col_2">
+                            {{item.t_pares}}
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="6" [routerLink]="['/producto',item]" (click)="_ps.pedir_curva(item.cod_catalogo,
+                item.linea,
+                item.tipo,
+                item.sub_tipo);">
+                    <img *ngIf="item.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.link_img)" />
+                    <img *ngIf="!item.link_img" src="assets/img/imagennodisponible.jpg" />
+                </ion-col>
+
+            </ion-row>
+            <ion-col size=4>
+                <ion-button shape="round" color="danger" outline block small (click)="_cs.remove_item(i)">
+                    Eliminar
+                </ion-button>
+                <hr color="tertiary">
+            </ion-col>
+        </ion-grid>
+
+        <ion-row align-items-start>
+            <ion-col size="4">
+                <h1 style="color:#d76d1f">
+                    <strong>Total:</strong>
+                </h1>
+
+            </ion-col>
+            <hr>
+            <ion-col size="3">
+                <h1>
+                    <strong> {{_cs.total_pares }} </strong>
+                </h1>
+            </ion-col>
+            <ion-col align-items-start size="5">
+                <ion-button class="position-relative" shape="round" color="primary" outline block small (click)="hacerPedido()">
+                    Hacer Pedido
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <hr>
+    </div>
+</ion-content>

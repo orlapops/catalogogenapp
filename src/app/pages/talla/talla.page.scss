@@ -1,0 +1,68 @@
+
+
+.talla_estilo
+{
+background-color: #ff9448;
+border: 1px solid;
+border-color:  #ffbc6e ;
+// border-top-left-radius: 15px;
+// border-top-right-radius: 15px;
+color:white;
+// font-weight: bold;
+}
+
+.talla_col_1
+{
+// background-color: #ffffff;
+border: 1px solid;
+background-color: rgb(255, 202, 155);
+border-color:  #ff8e0d ;
+border-width: 1px;
+color:black;
+ font-weight: bold;
+}
+
+.talla_col_2
+{
+// background-color: #ffffff;
+border: 1px solid;
+border-color:  #ff8e0d ;
+border-width: 1px;
+color:black;
+//font-weight: bold;
+}
+
+
+
+.talla_total
+{
+background-color: rgb(254, 213, 10);
+border: 1px solid;
+font-weight: bold;
+}
+.talla_tit
+{
+background-color: rgb(237, 112, 59); 
+border: 1px solid;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+font-weight: bold;
+}
+
+.talla_input
+{
+ box-shadow: 0 0 8px  #d76d1f;
+ margin: 8px 0;
+ border-radius: 4px;
+ width: 135%;
+ height: 30px;
+ padding: 0px 0px;
+ display: inline-block;
+ line-height: 1px;
+ justify-content: center;
+ 
+}
+.position-relative{
+    position: relative;
+    right: -11px;
+}

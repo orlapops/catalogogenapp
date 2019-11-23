@@ -1,0 +1,109 @@
+<ion-content padding class="animated fadeIn login auth-page">
+
+    <div class="auth-content">
+        <!-- Logo -->
+        <div padding-horizontal text-center class="animated fadeInDown">
+            <div class="logo"></div>
+            
+            
+        </div>
+
+        <!-- Register form -->
+        <form [formGroup]="onRegisterForm" class="list-form">
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="business" color="secondary" item-start></ion-icon>
+                    <ion-text color="secondary">
+                            Empresa
+                    </ion-text>
+                    
+                </ion-label>
+                <ion-input color="secondary" type="text" formControlName="empresa"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('empresa').touched && onRegisterForm.get('empresa').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es requerido
+                </ion-text>
+            </p>
+
+            <ion-item no-padding class="animated fadeInUp">
+                    <ion-label position="floating">
+                        <ion-icon name="person" color="secondary "item-start></ion-icon>
+                        <ion-text color="secondary">
+                                Nit/Cedula
+                        </ion-text>                       
+                    </ion-label>
+                    <ion-input color="secondary" type="text" formControlName="ID"></ion-input>
+                </ion-item>
+                <p ion-text class="text08" *ngIf="onRegisterForm.get('ID').touched && onRegisterForm.get('ID').hasError('required')">
+                    <ion-text color="danger">
+                        Este campo es requerido
+                    </ion-text>
+                </p>
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="person" color="secondary" item-start></ion-icon>
+                    <ion-text color="secondary">
+                            Nombre Completo
+                    </ion-text>
+                    
+                </ion-label>
+                <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es requerido
+                </ion-text>
+            </p>
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="mail" color="secondary" item-start></ion-icon>
+                    <ion-text color="secondary">
+                            Email
+                    </ion-text>
+                    
+                    
+                </ion-label>
+                <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es requerido
+                </ion-text>
+            </p>
+
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="lock" color="secondary" item-start></ion-icon>
+                    <ion-text color="secondary">
+                            Password
+                    </ion-text>
+                    
+                </ion-label>
+                <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <p ion-text color="danger" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es requerido
+                </ion-text>
+            </p>
+        </form>
+
+        <div margin-top>
+            <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="signUp()" [disabled]="!onRegisterForm.valid" tappable>
+                <ion-icon name="log-in"></ion-icon>
+                Registrarse
+            </ion-button>
+        </div>
+
+        <!-- Other links -->
+        <div text-center margin-top>
+            <span (click)="goToLogin()" tappable>
+        <ion-text color="warning">
+          <strong>Ya tengo una cuenta!</strong>
+        </ion-text>
+      </span>
+        </div>
+
+    </div>
+</ion-content>

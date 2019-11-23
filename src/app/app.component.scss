@@ -1,0 +1,12 @@
+:host {
+    ion-content {
+        --background: #fff1e5;
+        /* Old browsers */
+        --background: -moz-linear-gradient(top, #fff1e5 1%, #ffd0a8 12%, #ffd0a8 12%, #ffc596 26%, #ffb67f 38%, #ffaa6d 47%, #ffa84c 56%, #ff9c3a 65%, #ff9028 75%, #ff8819 86%, #ff7b07 94%, #ff7200 100%);
+        /* FF3.6-15 */
+        --background: -webkit-linear-gradient(top, #fff1e5 1%, #ffd0a8 12%, #ffd0a8 12%, #ffc596 26%, #ffb67f 38%, #ffaa6d 47%, #ffa84c 56%, #ff9c3a 65%, #ff9028 75%, #ff8819 86%, #ff7b07 94%, #ff7200 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        -background: linear-gradient(to bottom, #fff1e5 1%, #ffd0a8 12%, #ffd0a8 12%, #ffc596 26%, #ffb67f 38%, #ffaa6d 47%, #ffa84c 56%, #ff9c3a 65%, #ff9028 75%, #ff8819 86%, #ff7b07 94%, #ff7200 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+}

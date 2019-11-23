@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="text-align">{{_ps.catalogo_act}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="tertiary" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>Lineas</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-button *ngIf="_parEmpreProv.usuario.cap_factura" icon-left size="small" shape="round" color="tertiary" routerLink="/factura">
+                <ion-badge *ngIf="_prods.factura.length" color="success">{{ _prods.factura.length }}</ion-badge>
+                <ion-icon name="paper"></ion-icon>
+            </ion-button> -->
+
+
+<ion-content padding class="card-background-page">
+    <div text-center *ngIf="_ps.subcategoria.length === 0" class="lista_vacia">        
+        <br> <ion-icon name="alert"></ion-icon> Upsss. No hay nada por aqui
+    </div>
+    <div *ngIf="_ps.subcategoria.length != 0">
+            <ion-card detail *ngFor="let item of _ps.subcategoria.slice(0,10*pagina)">
+            <ion-card-content  [routerLink]="['/por-subcategoria',
+                                 {'cod_catalogo':item.cod_catalogo,
+                                 'linea':item.linea,
+                                 'tipo':item.tipo,
+                                 'sub_tipo':item.sub_tipo}]">
+                    <!--  <img src='data:image/jpeg;base64,{{item.imagen}}'>-->
+                    <img *ngIf="item.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.link_img)" />
+                    <img *ngIf="!item.link_img" src="assets/img/imagennodisponible.jpg" />
+                    <span class="text-align"><h2>{{item.linea}}</h2>
+                    {{item.nombre}}
+                </span>
+            </ion-card-content>
+            <ion-button  *ngIf="!item.link_img" color="primary"   tappable  (click)="Actlinkimagen(item.cod_catalogo,item.linea,item.version)">Act. Link Img</ion-button>
+        </ion-card>
+
+            <!-- <ion-label fixed *ngIf="!_ps.cargo_productos">Sin registros</ion-label> -->
+        
+    </div>
+    
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" > </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

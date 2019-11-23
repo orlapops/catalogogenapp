@@ -1,0 +1,83 @@
+.tc_estilo
+    {
+    background-color: #ff9448;
+    border: 1px solid;
+    border-color: #fc7e1d ;
+    // border-top-left-radius: 15px;
+    // border-top-right-radius: 15px;
+    color:white;
+     font-weight: bold;
+    }
+    
+.tc_col_1
+    {
+     background-color: rgb(255, 202, 155);
+     border: 1px solid;
+     border-color: #ffaf71 ;
+     font-weight: bold;
+
+    }
+
+.tc_col_2
+    {
+     background-color: rgb(255, 255, 255);
+     border: 1px solid;
+     border-color: #ffaf71 ;
+    }
+
+.tc_total
+    {
+    background-color: rgb(254, 213, 10);
+    border: 1px solid;
+    font-weight: bold;
+    }
+.tc_tit
+{
+    background-color: rgb(237, 112, 59); 
+    border: 1px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-weight: bold;
+}
+.tc_input
+{
+   box-shadow: 0 0 8px  #d76d1f;
+   margin: 8px 0;
+   border-radius: 4px;
+   width: 140%;
+   height: 30px;
+   padding: 0px 0px;
+   display: inline-block;
+   line-height: 1px;
+   justify-content: center;
+   
+}
+.tc_nombre
+    {
+    background-color: #cfd3cf;
+    border: 1px solid;
+    border-color: #fc7e1d ;
+    // border-top-left-radius: 15px;
+    // border-top-right-radius: 15px;
+    color:white;
+    // font-weight: bold;
+    }
+
+    .carrito_vacio {
+        position: relative;
+        top: 30%;
+        font-size: 24px;
+      }
+
+    .icon-5x {
+        font-size: 100px;
+      }
+    .position-relative{
+        position: relative;
+        right: 30px;
+        top: 10px;
+    }
+    .position-cod{
+        position: relative;
+        top: -14px;
+    }

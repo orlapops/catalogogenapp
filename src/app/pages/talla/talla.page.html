@@ -1,0 +1,82 @@
+<ion-header>
+
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button *ngIf="_parEmpreProv.usuario_valido && _parEmpreProv.permite_pedido"  routerLink="/carrito">
+                <ion-icon slot="icon-only" name="cart" color="secondary"></ion-icon>
+                <ion-badge color="danger" class="carrito-numero" *ngIf="_cs.items.length > 0">
+                    {{ _cs.items.length }}
+                </ion-badge>
+            </ion-button>&nbsp; &nbsp;
+            
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>Tallas </ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <ion-grid text-center>
+            <ion-row justify-content-center>
+                <h4 style="color: #e8860e">
+                    <strong>{{producto.linea}}  {{producto.color}}</strong>
+                </h4>
+            </ion-row>
+
+            <img *ngIf="producto.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(producto.link_img)" />
+            <img *ngIf="!producto.link_img" src="assets/img/imagennodisponible.jpg" />
+            
+            <ion-row justify-content-center class="talla_estilo">
+                <ion-col size="4">Talla</ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido"  size="8">Cantidad</ion-col>
+            </ion-row>
+
+            <ion-row align-items-center *ngFor="let item of _ps.talla;let i=index">
+                <ion-col size="4" class="talla_col_1">{{item.talla}}</ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido"  size="3">
+                    <ion-button fill="solid" shape="round" color="dark" (click)="decrementarcantidad(item)">
+                        <ion-icon name="remove"></ion-icon>
+                    </ion-button>
+
+                </ion-col>
+
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido"  size="2">
+                    <ion-input class="talla_input" text-center (ionChange)="total_tallas()" [(ngModel)]="item['cantidad']" type="number" min="1" max="1000" >
+                    </ion-input>
+                </ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido"  size="3">
+                    <ion-button fill="solid" shape="round" color="dark" class="position-relative" (click)="incrementarcantidad(item)">
+                        <ion-icon name="add"></ion-icon>
+                    </ion-button>
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="_parEmpreProv.usuario.Pedido"  text-center>
+                <!-- <ion-col size=4 style="background-color: rgb(254, 213, 10); border: 1px solid" >Total</ion-col> -->
+                <ion-col size="4">
+                    <h2> <strong>Total:</strong> </h2>
+                </ion-col>
+                <ion-col>
+                    <h4>
+                        {{total_t}}
+                    </h4>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <ion-button *ngIf="_parEmpreProv.usuario.Pedido" expand="block" (click)="_cs.agregar_carrito(producto)">
+        <ion-icon name="cart"></ion-icon>
+        Agregar al carrito
+    </ion-button>
+
+</ion-content>

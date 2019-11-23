@@ -1,0 +1,65 @@
+<ion-app *ngIf='this.cargo_catalogo'>
+    <ion-split-pane>
+        <ion-menu>
+            <ion-header>
+                <ion-toolbar color="primary" class="user-profile">
+
+                    <ion-item margin-bottom>
+                        <img src="assets/img/logovt.png" height="95" width="500">
+                        <ion-label>
+                            <ion-text color="tertiary" *ngIf="_parEmpreProv.usuario_valido">
+                                <h2><strong>{{_parEmpreProv.usuario.Nombre}}</strong></h2>
+                            </ion-text>
+                            <ion-text color="secondary" *ngIf="_parEmpreProv.usuario_valido">
+                                <h4>
+                                    {{_parEmpreProv.usuario.email}}
+                                </h4>
+                            </ion-text>
+                        </ion-label>
+                    </ion-item>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content class="bg-profile" *ngIf="_parEmpreProv.usuario_valido">
+                <ion-list>
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                        <ion-item [routerDirection]="[p.direct]" [routerLink]="[p.url]" color="primary">
+                            <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                            <ion-label>
+                                {{p.title}}
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle class="mto" auto-hide="false">
+                        <ion-item  *ngIf="_parEmpreProv.usuario.Pedido" color="primary" tappable (click)="ir_historialped()" >
+                            <ion-icon slot="start" name="cart"></ion-icon>
+                            <ion-label>
+                                Historial Pedidos
+                            </ion-label>
+                        </ion-item>
+                        <!-- <ion-item  *ngIf="_parEmpreProv.usuario.Admin" color="primary" tappable (click)="actualizar_bdfirebase()">
+                            <ion-icon slot="start" name="log-out"></ion-icon>
+                            <ion-label>
+                                Actualizar Catalogo Firebase
+                            </ion-label>
+                        </ion-item>
+                        <ion-item  *ngIf="_parEmpreProv.usuario.Admin" color="primary" tappable (click)="actualizar_imagenlineasfirebase()">
+                            <ion-icon slot="start" name="log-out"></ion-icon>
+                            <ion-label>
+                                Actualizar Imagenes Firebase
+                            </ion-label>
+                        </ion-item> -->
+                        <ion-item color="primary" tappable (click)="logout()">
+                            <ion-icon slot="start" name="log-out"></ion-icon>
+                            <ion-label>
+                                Cerrar Sesión
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

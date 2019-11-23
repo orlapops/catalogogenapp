@@ -1,0 +1,107 @@
+<ion-content padding class="animated fadeIn login auth-page">
+
+    <video autoplay loop muted class="video-bg" playsinline webkit-playsinline>
+    <source src="assets/video/footage-hotel.mp4" type='video/mp4; codecs="h.264"'>
+    <source src="assets/video/footage-hotel.webm" type="video/webm">
+  </video>
+
+    <div class="auth-content">
+
+        <!-- Logo -->
+        <div padding-horizontal text-center class="animated fadeInDown">
+            <div class="logo"></div>
+        </div>
+
+        <!-- Login form -->
+        <form [formGroup]="onLoginForm" class="list-form">
+
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="mail" color="secondary" item-start></ion-icon>
+                    <!-- {{ 'app.label.email' | translate }} -->
+                    <ion-text color="secondary">
+                        Email
+                    </ion-text>
+
+                </ion-label>
+                <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf=" onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es obligatorio"
+                </ion-text>
+            </p>
+
+
+            <ion-item no-padding class="animated fadeInUp">
+                <ion-label position="floating">
+                    <ion-icon name="lock" color="secondary" item-start></ion-icon>
+                    <!-- {{ 'app.label.password' | translate }} -->
+                    <ion-text color="secondary">
+                        Password
+                    </ion-text>
+
+                </ion-label>
+                <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <p ion-text color="danger" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+                <ion-text color="danger">
+                    Este campo es obligatorio
+                </ion-text>
+            </p>
+        </form>
+        <p text-right tappable (click)="forgotPass()" class="paz">
+            <ion-text color="secondary">
+                <strong>¿Olvido su contraseña?</strong>
+            </ion-text>
+        </p>
+
+
+
+
+        <div>
+            <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="login()" [disabled]="!onLoginForm.valid" tappable>
+                <ion-icon name="log-in"></ion-icon>
+                Ingresar
+            </ion-button>
+
+
+            <!-- <p text-center>
+                <ion-text color="light">
+                    O {{ 'app.button.signin' | translate }} con:
+                </ion-text>
+            </p>
+
+            <ion-grid class="btn-group">
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button shape="round" expand="full" fill="outline" color="tertiary">
+                            <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button shape="round" expand="full" fill="outline" color="tertiary">
+                            <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button shape="round" expand="full" fill="outline" color="tertiary">
+                            <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid> -->
+
+        </div>
+        <!-- Other links -->
+        <div text-center margin-top>
+            <span (click)="goToRegister()" class="paz" tappable>
+                <ion-text color="secondary">
+                    ¿Nuevo Aquí? <strong>Registrate</strong>
+                </ion-text>
+            </span>
+        </div>
+
+
+    </div>
+</ion-content>

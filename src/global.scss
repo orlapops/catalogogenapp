@@ -1,0 +1,1692 @@
+// http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/animate.css";
+//visitas
+.horavisita {
+    position: absolute;
+    left: 70%;
+    top: 1%;
+}
+
+.headercliente {
+    font-size: 12px;
+}
+
+.fechavisita {
+    position: absolute;
+    left: 0%;
+    top: 1%;
+}
+
+.clientevisita {
+    position: relative;
+    left: 0%;
+    top: 15%;
+}
+
+.direcvisita {
+    position: relative;
+    left: 0%;
+    top: 80%;
+}
+
+.notavisita {
+    position: relative;
+    left: 0%;
+    top: 90%;
+}
+
+// backgrounds //
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-red {
+    background-color: #f52f2f;
+}
+
+.bg-verde {
+    background-color: #1ed766;
+}
+
+.bg-light {
+    background-color: var(--ion-color-light);
+}
+
+.bg-dark {
+    background-color: var(--ion-color-dark);
+}
+
+.bg-primary {
+    background-color: var(--ion-color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--ion-color-secondary);
+}
+
+.bg-tertiary {
+    background-color: var(--ion-color-tertiary);
+}
+
+.bg-profile {
+    background-image: linear-gradient(135deg, #f79b71, #9b4016);
+    // background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+}
+
+.bg-main {
+    background-image: linear-gradient(135deg, #f79b71, #9b4016);
+    // background-image: linear-gradient(-135deg, var(--ion-color-medium), var(--ion-color-light))
+}
+
+// Helpers //
+.w100 {
+    width: 100%;
+}
+
+.bold,
+.fw500 {
+    font-weight: 500 !important;
+}
+
+.fw700 {
+    font-weight: 700 !important;
+}
+
+.text08 {
+    font-size: .8rem;
+}
+
+.text1 {
+    font-size: 1rem !important;
+}
+
+.text15 {
+    font-size: 1.5rem;
+}
+
+.text20 {
+    font-size: 2rem;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-primary {
+    color: var(--ion-color-primary);
+}
+
+.text-dark {
+    color: var(--ion-color-dark);
+}
+
+// menu //
+// Menu user profile
+ion-toolbar.user-profile {
+    .user-avatar {
+        width: 68px;
+        height: 68px;
+    }
+    .item-inner {
+        border-width: 0;
+    }
+}
+
+// Custom ionBooking toolbar (overriding Shadow DOM)
+ion-toolbar {
+    &.ion-color-primary {
+        --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+    }
+}
+
+// Android card shadow
+ion-card {
+    &.sc-ion-card-md-h {
+        box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb), .24);
+    }
+}
+
+// style for auth pages
+.auth-page {
+    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+    .grid {
+        padding: 0;
+        .col {
+            padding: 0;
+        }
+    }
+    .btn-group {
+        .button-ios,
+        .button-md {
+            border-radius: 0;
+            &:first-of-type {
+                border-radius: 2px 0 0 2px;
+            }
+            &:last-of-type {
+                border-radius: 0 2px 2px 0;
+            }
+        }
+    }
+    .auth-content {
+        margin: 0 5%;
+        .logo {
+            // 60 y 60
+            width: 240px;
+            height: 120px;
+            margin: 20px auto 8px;
+            border-radius: 10%;
+            // background: url("/assets/img/ionbooking-ico.png") no-repeat;
+            background: url("/assets/img/logovt.png") no-repeat;
+            background-size: 100%;
+        }
+        .list-form {
+            padding: 0;
+            margin-bottom: 0;
+            ion-item {
+                background: none;
+                padding: 0;
+                &:first-child {
+                    border-top: none;
+                }
+                &:after {
+                    display: none;
+                }
+                ion-label {
+                    font-size: 1em;
+                    color: var(--ion-color-light);
+                }
+                // input {
+                //     color: var(--ion-color-light);
+                // }
+            }
+            .item-native {
+                background: #f79b71;
+            }
+    
+        }
+    }
+}
+
+// Custom ionBooking Menu styles (overriding Shadow DOM)
+ion-menu {
+    ion-header {
+        ion-toolbar {
+            &.ion-color-dark {
+                --ion-color-base: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-dark)) !important;
+            }
+        }
+    }
+}
+
+.mto {
+    margin-top: 12px;
+    ion-icon {
+        margin-bottom: -2px;
+    }
+}
+
+//*************************************//
+//******** Horizontal scroll ***********//
+//*************************************//
+
+.top-horizontal-scroll {
+    margin-left: 10px;
+    white-space: nowrap;
+    height: auto;
+    overflow-X: scroll;
+    overflow-y: auto;
+}
+.horizontal-scroll {
+    margin-left: 10px;
+    white-space: nowrap;
+    height: auto;
+    overflow-X: scroll;
+    overflow-y: auto;
+    vertical-align: top !important; /* here */
+}
+
+//*************************************//
+//******** Modal styles ***********//
+//*************************************//
+
+// from bottom
+// .my-custom-modal-css .modal-wrapper {
+//     height: 20%;
+    
+//     top: 80%;
+//     position: absolute; 
+//     display: block;  
+//  }
+
+
+//******** small ***********//
+.from-middle-modal .modal-wrapper {
+    height: 450px;
+    width: 380px;
+    // width: 300px;
+    // top: 350px;
+    // bottom:0px;
+    position: absolute; 
+    border-radius: 8px  !important;
+    display: block;  
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+ }
+//******** full ***********//
+
+
+//********  top ***********//
+.from-top-modal .modal-wrapper {
+    height: 20%;
+    bottom: 80%;
+    position: absolute; 
+    display: block;  
+ }
+
+
+//******** bottom  ***********//
+.from-bottom-modal .modal-wrapper {
+    height: 20%;
+    
+    top: 80%;
+    position: absolute; 
+    display: block;  
+ }
+
+
+
+
+
+
+
+//*************************************//
+//******** TravelApp styles ***********//
+//*************************************//
+
+
+.travel_space0{
+    margin: 10px 0px 0px;
+}
+.travel_space1{
+    margin: 0px 0px 0px;
+}
+.travel_space2{
+    margin: 10px 0px;
+}
+.travel_space3{
+    margin: 10px 0px;
+}
+.travel_space4{
+    margin: 5px 15px;
+}
+
+
+
+// .travel_header1{
+//     font-family:roboto !important;
+//     letter-spacing: -1px !important;
+//     font-size: 28px !important;
+//     font-weight: 700 !important;
+// }
+.travel_header2{
+    color:#464646 !important;
+    letter-spacing: -1px;
+    font-size: 22px;
+    font-weight: 300;
+
+//     letter-spacing: -1px;
+//     font-size: 17px !important;
+//     font-weight: 400 !important;
+}
+
+.travel_header3{
+    // color:#464646 !important;
+    // letter-spacing: -1px;
+    // font-size: 22px;
+    // font-weight: 300;
+
+    letter-spacing: -1px;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+
+
+.travel_title1{
+    font-family:roboto;
+    font-size: 17px;
+    font-weight:600;
+    color: #464646;
+    margin-top: 12px;
+}
+
+
+
+
+
+
+//********************************************//
+//******** Food Delivery App styles **********//
+//********************************************//
+
+
+.food_space0{
+    margin: 10px 0px 0px;
+}
+.food_space1{
+    margin: 0px 0px 0px;
+}
+.food_space2{
+    margin: 10px 0px;
+}
+.food_space3{
+    margin: 10px 0px;
+}
+.food_space4{
+    margin: 5px 15px;
+}
+
+
+
+.food_header1{
+    margin-bottom: 2px !important;
+    letter-spacing: -1px;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+.food_header2{ // user main_header3 instead //
+    //color:#464646 !important;
+    letter-spacing: -1px;
+    font-size: 26px;
+    font-weight: 300;
+// disable this food_header2 //
+//     letter-spacing: -1px;
+//     font-size: 17px !important;
+//     font-weight: 400 !important;
+}
+
+.food_header3{
+    // color:#464646 !important;
+    // letter-spacing: -1px;
+    // font-size: 22px;
+    // font-weight: 300;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    color:#999 !important;
+    letter-spacing: -1px;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+
+
+.food_title1{
+    font-family:roboto;
+    font-size: 17px;
+    font-weight:600;
+    color: #464646;
+    margin-top: 12px;
+}
+
+
+// ************ Horizontal card ************//  
+
+
+.main-h-card{
+    display: inline-block;
+    vertical-align: top; /* here */
+    border-radius: 9px  !important;
+    // remove shadow //
+    -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+.main-card{
+   border-radius: 3px  !important;
+   vertical-align: top; /* here */
+   // remove shadow //
+   margin-left: 0px !important;
+   margin-right: 0px !important;
+   -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+   box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+
+// ************ Wide card ************//  
+.travel-card-wide  {
+ 
+    // border-radius: 4px  !important;
+    // width: 100% !important;
+    height:157px !important;
+    margin: 10px 10px 0px 10px !important;
+    background-color: #dddddd;
+    // min-height: 150vh !important;
+    // max-height: 160vh !important;
+
+}
+
+.travel-card-wide-bg:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+.travel-card-wide-bg {
+    position: relative;
+    height: 157px;
+    background-color: #dddddd;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.travel-card-wide-bg .travel-card-wide-title {
+    width: 100px;
+    padding:0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+    font-size: 22px;
+    font-style: roboto;
+    font-weight: 600;
+    color: #FFFFFF;
+    position: absolute;
+    top: 25%;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+.travel-card-wide-bg .travel-card-wide-sub-title {
+    width: 100px;
+    padding:0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+    font-size: 18px;
+    font-style: roboto;
+    font-weight: 400;
+    color: #FFFFFF;
+    position: absolute;
+    top: 42%;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+
+
+
+    //************ Tall card ************//  
+    .card-tall  {
+        position: relative;
+        width:  120px !important;
+        height:315px !important;
+        margin: 0px 5px 0px 5px !important;
+        // background-color: #dddddd;
+        //min-height: 150vh !important;
+        //max-height: 160vh !important;
+        
+    }
+    .div-tall-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .div-tall-bg {
+        border-radius: 9px  !important;
+        position: relative;
+        width:  120px;
+        height: 245px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-tall-title {
+        width: 100px;
+        padding:0px 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+
+        font-style: roboto;
+        font-size: 24px;
+        font-weight: 400;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 45%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+    .card-tall-star {
+        width: 133px !important;
+        height:133px !important;
+
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 16px;
+        font-weight: normal;
+        color: #FFFFFF;
+        position: absolute;
+        top: 55%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+
+    // ************ Small wide card ************//  
+    .card-s-wide  {
+        position: relative;  
+
+        border-radius: 8px  !important;
+        width: 149px !important;
+        height:77px !important;
+        margin: 0px 5px 0px 5px !important;
+        background-color: #dddddd;
+        //min-height: 150vh !important;
+        //max-height: 160vh !important;
+
+    }
+
+    .card-s-wide-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-s-wide-bg {
+        position: relative;
+        height: 77px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-s-wide-bg .card-s-wide-title {
+        width: 149px;
+        padding:0px 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        // font-family:roboto;
+        font-size: 17px;
+        // font-weight:700;
+        color: #FFFFFF;
+        position: absolute;
+        top: 18%;
+        bottom:15px;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+
+
+
+// ************ Square card ************//  
+.card-square  {
+    position: relative;
+    width: 133px !important;
+    height:133px !important;
+    margin: 0px 5px 0px 5px !important;
+    background-color: #dddddd;
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+    
+    }
+    // .card-tall  .card-tall-bg{
+    //     height: 230px; 
+    // }
+    .card-square-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-square-bg {
+        position: relative;
+        height: 133px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-square-bg .card-square-title {
+        width: 100px;
+        padding:0px 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+
+        font-style: roboto;
+        font-size: 16px;
+        font-weight: 400;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 30%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+    .card-square-bg .card-square-star {
+        width: 133px !important;
+        height:133px !important;
+
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 16px;
+        font-weight: normal;
+        color: #FFFFFF;
+        position: absolute;
+        top: 60%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+
+.shop-main-h-card{
+    display: inline-block;
+    border-radius: 9px  !important;
+    // remove shadow //
+    -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+.shop-main-card{
+   border-radius: 4px  !important;
+   // remove shadow //
+   margin-left: 0px !important;
+   margin-right: 0px !important;
+   -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+   box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+.info-card{
+    background-color: #fff;
+    padding: 10px 15px 25px 15px;
+    border-radius: 10px  !important;
+    // remove shadow //
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+.info-card-2{
+    background-color: #fff;
+    padding: 10px 15px 25px 15px;
+    border-radius: 0px  !important;
+    // remove shadow //
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+
+
+   //************ small wide card ************//  
+
+.shop-card-s-wide  {
+    position: relative;  
+
+    border-radius: 8px  !important;
+    width: 149px !important;
+    height:77px !important;
+    margin: 0px 5px 0px 5px !important;
+    background-color: #dddddd;
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+
+}
+
+.shop-card-s-wide-bg:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+.shop-card-s-wide-bg {
+    position: relative;
+    height: 77px;
+    background-color: #dddddd;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.shop-card-s-wide-bg .shop-card-s-wide-title {
+    width: 149px;
+    padding:0px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+    font-family:roboto;
+    font-size: 17px;
+    font-weight:700;
+    color: #FFFFFF;
+    position: absolute;
+    top: 18%;
+    bottom:15px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+
+
+   //************ For horizontal ************//  
+.shop-card-tall{
+    position: relative;
+    width:  120px !important;
+    height:250px!important;
+    margin: 0px 5px 0px 5px !important;
+    // background-color: #dddddd;
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+    
+}
+.shop-div-tall-bg:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+.shop-div-tall-bg {
+    border-radius: 9px  !important;
+    position: relative;
+    width:  120px;
+    height: 160px;
+    background-color: #dddddd;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.shop-card-tall-title {
+    width: 100px;
+    padding:0px 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+
+    font-style: roboto;
+    font-size: 24px;
+    font-weight: 400;
+
+    color: #FFFFFF;
+    position: absolute;
+    top: 45%;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+.shop-card-tall-star {
+    width: 133px !important;
+    height:133px !important;
+
+    padding:0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+    font-size: 16px;
+    font-weight: normal;
+    color: #FFFFFF;
+    position: absolute;
+    top: 55%;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+   //************ For grid layout ************//  
+   .shop-card-tall-2  {
+       position: relative;
+      // width:  100% !important;
+    //   padding: 0px 5px;
+       height:x !important; // include content 
+        margin: 0px 5px 0px 5px !important;
+       // background-color: #dddddd;
+       //min-height: 150vh !important;
+       //max-height: 160vh !important;
+   }
+   .shop-div-tall-bg-2:before {
+       content: ' ';
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: 0;
+       bottom: 0;
+       background-size: cover;
+       background-position: center;
+   }
+   .shop-div-tall-bg-2 {
+       border-radius: 4px  !important;
+       position: relative;
+       //width:  120px;
+       height: 200px;
+       background-color: #dddddd;
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+       background-size: cover;
+       background-position: center;
+   }
+
+   .shop-card-tall-title-2 {
+       width: 100px;
+       padding:0px 5px;
+
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis; // This is where the magic happens
+
+       font-style: roboto;
+       font-size: 24px;
+       font-weight: 400;
+
+       color: #FFFFFF;
+       position: absolute;
+       top: 45%;
+       text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+       width: 100%;
+       text-align: center;
+   }
+   .shop-card-tall-star-2 {
+       width: 133px !important;
+       height:133px !important;
+
+       padding:0px 5px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis; // This is where the magic happens
+       font-size: 16px;
+       font-weight: normal;
+       color: #FFFFFF;
+       position: absolute;
+       top: 55%;
+       text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+       width: 100%;
+       text-align: center;
+   }
+
+.food-main-h-card{
+    display: inline-block;
+    border-radius: 9px  !important;
+    -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0)  !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+.food-card1  {
+    position: relative;
+    width: 295px !important;
+    
+   // height:285px !important;
+    margin: 0px 5px 0px 5px !important;
+
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+    
+    }
+    // .card-tall  .card-tall-bg{
+    //     height: 230px; 
+    // }
+    .food-card1-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .food-card1-bg {
+        position: relative;
+        height: 158px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px  !important;
+    }
+
+    .food-card1-bg .card1-title {
+        width: 100px;
+        padding:0px 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+
+        font-style: roboto;
+        font-size: 16px;
+        font-weight: 400;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 30%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+    .food-card1-bg .card1-star {
+        width: 133px !important;
+        height:133px !important;
+
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 16px;
+        font-weight: normal;
+        color: #FFFFFF;
+        position: absolute;
+        top: 60%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+// ************ Category card ************//  
+.food-card2  {
+    position: relative;
+    width: 149px !important;
+    height:92px !important;
+    margin: 0px 5px 0px 5px !important;
+    background-color: #dddddd;
+    border-radius: 8px  !important;
+
+    }
+
+    .food-card2-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .food-card2-bg {
+        position: relative;
+        height: 92px;
+    
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .food-card2-bg .card2-title {
+        width: 100px;
+        padding:0px 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+
+        font-style: roboto;
+        font-size: 16px;
+        font-weight: 400;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 30%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+    .food-card2-bg .card2-star {
+        width: 179px !important;
+        height:77px !important;
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-style: roboto;
+        font-size: 17px;
+        font-weight: 600;
+        color: #FFFFFF;
+        position: absolute;
+        top: 60%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+// ************ Promotion card ************//  
+    .food-card3  {
+        position: relative;  
+        width: 201px !important;
+        height:357px !important;
+        // padding-left:16px;
+        margin: 0px 5px 0px 5px !important;
+        
+        //min-height: 150vh !important;
+        //max-height: 160vh !important;
+    
+    }
+
+    .food-card3-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .food-card3-bg {
+        position: relative;
+        width: 100%;
+        height: 252px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px  !important;
+    }
+    .food-card3-bg .card3-title {
+        width: 100px;
+        padding:0px 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 17px;
+        font-weight: 600;
+        color: #FFFFFF;
+        position: absolute;
+        top: 25%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+// ************ Popular card ************//  
+.real-card1  {
+    position: relative;
+    width: 295px !important;
+    
+    height:275px !important;
+    margin: 0px 5px 0px 5px !important;
+
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+    
+    }
+    // .card-tall  .card-tall-bg{
+    //     height: 230px; 
+    // }
+    .real-card1-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .real-card1-bg {
+        position: relative;
+        height: 158px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px  !important;
+    }
+
+    .real-card1-bg .card1-title {
+        width: 100px;
+        padding:0px 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+
+        font-style: roboto;
+        font-size: 16px;
+        font-weight: 400;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 30%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+    .real-card1-bg .card1-star {
+        width: 133px !important;
+        height:133px !important;
+
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 16px;
+        font-weight: normal;
+        color: #FFFFFF;
+        position: absolute;
+        top: 60%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+
+
+
+// ************ full list card************//  
+.real-card2  {
+    position: relative;
+    width: 100% !important;
+    
+    height:285px !important;
+    margin: 0px 0px 0px 0px !important;
+  
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+    
+    }
+    // .card-tall  .card-tall-bg{
+    //     height: 230px; 
+    // }
+    .real-card2-bg:before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    .real-card2-bg {
+        position: relative;
+        height: 158px;
+        background-color: #dddddd;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px  !important;
+    }
+  
+    .real-card2-bg .card1-title {
+        width: 100px;
+        padding:0px 5px;
+  
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+  
+        font-style: roboto;
+        font-size: 16px;
+        font-weight: 400;
+  
+        color: #FFFFFF;
+        position: absolute;
+        top: 30%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+  
+    .real-card2-bg .card1-star {
+        width: 133px !important;
+        height:133px !important;
+  
+        padding:0px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // This is where the magic happens
+        font-size: 16px;
+        font-weight: normal;
+        color: #FFFFFF;
+        position: absolute;
+        top: 60%;
+        text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        width: 100%;
+        text-align: center;
+    }
+  
+
+
+
+ // ************ Original  wide card ************//  
+ .card-wide  {
+    position: relative;  
+
+    border-radius: 0px  !important;
+    height:120px !important;
+    // margin: 0px 5px 0px 5px !important;
+    background-color: #dddddd;
+    //min-height: 150vh !important;
+    //max-height: 160vh !important;
+
+}
+
+.card-wide-bg:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+.card-wide-bg {
+    position: relative;
+    height: 120px;
+    background-color: #dddddd;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.card-wide-bg .card-s-wide-title {
+    //width: 149px;
+    padding:0px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; // This is where the magic happens
+    font-family:roboto;
+    font-size: 17px;
+    font-weight:700;
+    color: #FFFFFF;
+    position: absolute;
+    top: 18%;
+    bottom:15px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+
+.ribbon{
+    position:absolute;
+    padding:0;
+    margin:0;
+    z-index: 9999;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    transform-origin:0 100%;
+    box-shadow:0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+    background-color:#d33939; 
+    color: #fff;
+    height:25px;
+    width:100px;
+    top:-30px;
+    transform:rotateZ(45deg);
+    padding-left:30px;
+    padding-right:30px;
+    line-height:30px;
+    // right:-14.644660940673px;
+    right: -34px;
+    -webkit-transform:rotateZ(45deg);
+    -moz-transform:rotateZ(45deg);
+    -o-transform:rotateZ(45deg);
+  }
+  .bookmarkRibbon{
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    right: 10px;
+    width:0; 
+    height:35px; 
+    border-right:10px solid #ffc107;
+    border-left:10px solid #ffc107;
+    border-bottom:10px solid transparent;
+    
+}
+  .discount {
+    text-decoration: line-through;
+  }
+
+
+
+
+
+
+
+
+
+.footer-box{
+    height: 100px;
+}
+
+
+//****************************//
+//******** Margin ***********//
+//***************************//
+.margin-top-0{
+    margin-top: 0px !important;
+}
+.margin-top-3{
+    margin-top: 3px !important;
+}
+.margin-top-5{
+    margin-top: 5px !important;
+}
+.margin-top-10{
+    margin-top: 10px !important;
+}
+
+.margin-bottom-0{
+    margin-bottom: 0px !important;
+}
+.margin-bottom-3{
+    margin-bottom: 3px !important;
+}
+.margin-bottom-5{
+    margin-bottom: 5px !important;
+}
+.margin-bottom-10{
+    margin-bottom: 10px !important;
+}
+.margin-all-5{
+    margin: 5px !important;
+}
+.margin-all-10{
+    margin: 10px !important;
+}
+.margin-all-15{
+    margin: 15px !important;
+}
+
+.margin-right-0{
+    margin-right: 0px !important;
+}
+.margin-left-0{
+    margin-left: 0px !important;
+}
+//****************************//
+//******** Padding ***********//
+//***************************//
+.padding-top-0{
+    padding-top: 0px !important;
+}
+.padding-top-3{
+    padding-top: 3px !important;
+}
+.padding-top-5{
+    padding-top: 5px !important;
+}
+.padding-top-10{
+    padding-top: 10px !important;
+}
+
+.padding-bottom-0{
+    padding-bottom: 0px !important;
+}
+.padding-bottom-3{
+    padding-bottom: 3px !important;
+}
+.padding-bottom-5{
+    padding-bottom: 5px !important;
+}
+.padding-bottom-10{
+    padding-bottom: 10px !important;
+}
+.padding-right-15{
+    padding-right: 15px !important;
+}
+.padding-right-25{
+    padding-right: 25px !important;
+}
+.padding-left-15{
+    padding-left: 15px !important;
+}
+.padding-left-25{
+    padding-left: 25px !important;
+}
+.padding-all-5{
+    padding: 5px !important;
+}
+.padding-all-10{
+    padding: 10px !important;
+}
+.padding-all-15{
+    padding: 15px !important;
+}
+
+
+//*************************************//
+//******** Typography ***********//
+//*************************************//
+.main-header9{
+    //letter-spacing: -1px;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+}
+.main-header8{
+    //letter-spacing: -1px;
+    font-size: 14px!important; 
+    font-weight: 300 !important;
+}
+.main-header7{
+    //letter-spacing: -1px;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+}
+.main-header6{
+    //letter-spacing: -1px;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+}
+.main-header5{
+    //letter-spacing: -1px;
+    font-size: 20px !important;
+    font-weight: 300 !important;
+
+//     letter-spacing: -1px;
+//     font-size: 17px !important;
+//     font-weight: 400 !important;
+}
+.main-header4{
+    //letter-spacing: -1px;
+    font-size: 22px !important;
+    font-weight: 300 !important;
+
+//     letter-spacing: -1px;
+//     font-size: 17px !important;
+//     font-weight: 400 !important;
+}
+.main-header3{
+    //letter-spacing: -1px;
+    font-size: 26px !important;
+    font-weight: 300 !important;
+}
+.main-header2{
+    letter-spacing: -1px;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+}
+.main-header1{
+    letter-spacing: -1px;
+    font-size: 30px !important;
+    font-weight: 300;
+}
+.main-header0{
+    letter-spacing: -1px;
+    font-size: 34px !important;
+    font-weight: 300 !important;
+}
+.main-b-header1{
+    letter-spacing: -1px;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+}
+.main-b-header2{
+    letter-spacing: -1px;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+.main-b-header3{
+    //letter-spacing: -1px;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+}
+.main-b-header4{
+    //letter-spacing: -1px;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+.main-b-header5{
+   // letter-spacing: -1px;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+.main-b-header6{
+    //letter-spacing: -1px;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+.main-b-header7{
+    //letter-spacing: -1px;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+}
+
+.main-b-header8{
+    //letter-spacing: -1px;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+.main-b-header9{
+    //letter-spacing: -1px;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+.main-para0{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #444444 !important;
+}
+.main-para1{
+    letter-spacing: 1px;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #444444 !important;
+}
+.main-para2{
+    letter-spacing: 1px;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #444444 !important;
+}
+
+//**********************************//
+//******   Ionic component    ******//
+//**********************************//
+.loadinDialog{
+    --background: #111;
+}
+.loading-translucent.sc-ion-loading-ios-h .loading-wrapper.sc-ion-loading-ios {
+    background-color: rgba(var(--ion-background-color-rgb,0,0,0),.4) !important;
+    --spinner-color: white;
+    // -webkit-backdrop-filter: saturate(180%) blur(20px);
+    // backdrop-filter: saturate(180%) blur(20px);
+}

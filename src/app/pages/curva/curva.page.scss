@@ -1,0 +1,88 @@
+.curva_estilo {
+    background-color: #ff9448;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    // border-top-left-radius: 15px;
+    // border-top-right-radius: 15px;
+    color: white;
+    // font-weight: bold;
+}
+
+.curva_tit {
+    background-color: #ff8000;
+    border: 1px solid;
+    border-color: #fb7209;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.curva_tit_1 {
+    background-color: #ff963e;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: white;
+    // font-weight: bold;
+}
+
+.curva_tit_2 {
+    background-color: #ff963e;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: white;
+    // font-weight: bold;
+}
+
+.curva_col_1 {
+    background-color: #ffab66;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: black;
+    // font-weight: bold;
+}
+
+.curva_col_2 {
+    background-color: #ffab66;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: black;
+}
+
+.curva_total_1 {
+    background-color: #fffb89;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: black;
+    font-weight: bold;
+}
+
+.curva_total_2 {
+    background-color: #fffb89;
+    border: 1px solid;
+    border-color: #ff8e0d;
+    border-width: 1px;
+    color: black;
+}
+
+.curva_input {
+    box-shadow: 0 0 8px #d76d1f;
+    margin: 8px 0;
+    border-radius: 4px;
+    width: 135%;
+    height: 30px;
+    padding: 0px 0px;
+    display: inline-block;
+    line-height: 1px;
+    justify-content: center;
+}
+
+.position-relative {
+    position: relative;
+    left: 10px;
+}

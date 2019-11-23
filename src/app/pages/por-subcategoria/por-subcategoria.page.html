@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="text-align">{{_ps.catalogo_act}}:{{subcategoria.linea}} </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div text-center *ngIf="_ps.producto.length === 0" class="lista_vacia">
+        <br> Upsss. No hay nada por aqui
+    </div>
+    
+        <ion-card detail *ngFor="let item of _ps.producto.slice(0,10*pagina)" [routerLink]="['/producto',item]">
+                <!--<img src='data:image/jpeg;base64,{{item.imagen}}'>-->
+                <img *ngIf="item.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.link_img)" />
+                <img *ngIf="!item.link_img" src="assets/img/imagennodisponible.jpg" />
+           <span class="text-align">
+                <h2>{{item.color}}</h2>
+                {{item.nombre}}
+            </span>
+
+        </ion-card>
+
+        <!-- <ion-label fixed *ngIf="!_ps.cargo_productos">Sin registros</ion-label> -->
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"> </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

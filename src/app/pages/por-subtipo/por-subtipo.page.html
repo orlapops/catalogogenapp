@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar color="primary" class="user-profile">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="warning" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="text-align">{{_ps.catalogo_act}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button icon-left size="small" shape="round" color="tertiary" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>Lineas</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-button *ngIf="_parEmpreProv.usuario.cap_factura" icon-left size="small" shape="round" color="tertiary" routerLink="/factura">
+                <ion-badge *ngIf="_prods.factura.length" color="success">{{ _prods.factura.length }}</ion-badge>
+                <ion-icon name="paper"></ion-icon>
+            </ion-button> -->
+
+
+<ion-content *ngIf="cargo_nivel" padding class="card-background-page">
+    <div text-center *ngIf="datosnivel.length === 0" class="lista_vacia">        
+        <br> <ion-icon name="alert"></ion-icon> Upsss. No hay nada por aqui
+    </div>
+    <div *ngIf="datosnivel.length != 0">
+            <ion-grid class="ion-margin-top ion-padding-top">
+                    <ion-row wrap>
+                            <!-- <ion-col tappable  size="6"  class="ion-padding" *ngFor="let item of datosnivel | async" color="gray"> -->
+                                    <ion-col tappable  size="6"  class="ion-padding" *ngFor="let item of items | async" color="gray">
+                           <ion-card class="shop-main-card shop-card-tall-2 ion-margin-bottom"  (click)="openDetail('shopping-detail',item.codigo)"   >
+                                <div *ngIf="!item.subniveles">
+                                        <!-- <ion-card class="shop-main-card shop-card-tall-2 ion-margin-bottom"  [routerLink]="['/shopping-detail',item.id]" > -->
+                                    <div *ngIf="item.discount"  class="ribbon">PROMO</div>
+                                <div *ngIf="item.imagen" class="shop-div-tall-bg-2"  [ngStyle]="{'background-image': 'url(' + item.imagen+ ')'}"></div>
+                                <!-- <div *ngIf="item.imagen" class="shop-div-tall-bg-2"  [ngStyle]="{'background-image': 'url(' + _DomSanitizer.bypassSecurityTrustUrl(item.imagen)+ ')'}"></div> -->
+                                <div *ngIf="!item.imagen" class="shop-div-tall-bg-2"  [ngStyle]="{'background-image': 'url(' + 'assets/img/imagennodisponible.jpg'+ ')'}"></div>
+                                <div class="ion-margin-top main-header8" text-wrap>{{item.nombre}}</div>
+                                <ion-icon  style="font-size: 12px !important;" color="warning" *ngFor="let i of [0,1,2,3,4]" [name]="i < item.rating  ? 'star' : 'star-outline'"></ion-icon>
+                                <!-- <div class="main-b-header8" color="green">${{item.price}}</div> -->
+                                <div *ngIf="!item.discount" class="main-b-header9" >
+                                    <ion-text color="grey">{{item.price | currency}}</ion-text>
+                                </div>
+                                <div *ngIf="item.discount" class="main-b-header9" >
+                                    <ion-text color="grey">{{item.discount_price | currency}}&nbsp;&nbsp;</ion-text>
+                                    <ion-text color="lightgrey" class="discount">{{item.price | currency}}</ion-text>
+                                </div>
+                            </div>                
+                            </ion-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                
+
+
+            <ion-card class="main-card" detail *ngFor="let item of datosnivel.slice(0,10*pagina)" [routerLink]="['/por-subtipo',item.codigo.trim(),nivel+1,linknivel+item.id.trim()]">
+    <!-- Si tiene subniveles -->
+                <div *ngIf="item.subniveles">
+                    <!-- {{item.codigo}} - {{item.nombre}} -->
+                <!--  <img src='data:image/jpeg;base64,{{item.imagen}}'>-->
+                    <img *ngIf="item.imagen" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.imagen)" />
+                    <img *ngIf="!item.imagen" src="assets/img/imagennodisponible.jpg" />
+                    <span class="text-align">
+                        <!-- <h2>{{item.sub_tipo}}</h2> -->
+                    <!-- {{item.nombre}} -->
+                    </span>
+                </div>
+                
+            </ion-card>            
+
+            <!-- <ion-label fixed *ngIf="!_ps.cargo_productos">Sin registros</ion-label> -->        
+    </div>
+    <!-- Si no tiene subniveles mmostrar productos -->
+    <!-- <div *ngIf=" datosnivel.length != 0">
+        <ion-card detail *ngFor="let item of datosnivel.slice(0,10*pagina)" [routerLink]="['/por-subtipo',item.codigo.trim(),nivel+1,linknivel+item.id.trim()]">
+            {{item.codigo}} - {{item.nombre}}
+                <img *ngIf="item.imagen" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.imagen)" />
+                <img *ngIf="!item.imagen" src="assets/img/imagennodisponible.jpg" />
+                <span class="text-align">
+            </span>
+        </ion-card>            
+</div> -->
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" > </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

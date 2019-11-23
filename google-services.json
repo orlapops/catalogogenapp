@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "549314286487",
+    "firebase_url": "https://netsolincatrut.firebaseio.com",
+    "project_id": "netsolincatrut",
+    "storage_bucket": "netsolincatrut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549314286487:android:0e21f2721a913bc3df2ad2",
+        "android_client_info": {
+          "package_name": "com.netsolin.catalogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549314286487-np2as5g9foj71bvvuh7ve363s58sk9sr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgHe-W_BdA-g_xF5hVfJicBHLY2PTK4_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549314286487-np2as5g9foj71bvvuh7ve363s58sk9sr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

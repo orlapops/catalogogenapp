@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "474270541113",
+    "firebase_url": "https://viatropicalfb.firebaseio.com",
+    "project_id": "viatropicalfb",
+    "storage_bucket": "viatropicalfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474270541113:android:ff87bdf05d62fcef",
+        "android_client_info": {
+          "package_name": "catalogovt.com.netsolin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474270541113-fsm2ttfhpjn85ucgmmftvc5epp8mipnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5dPquw0hjM06HxUENaaXX7c0zlrP28Ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474270541113-fsm2ttfhpjn85ucgmmftvc5epp8mipnc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

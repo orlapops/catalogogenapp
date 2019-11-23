@@ -1,0 +1,163 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button *ngIf="_parEmpreProv.usuario_valido && _parEmpreProv.permite_pedido" routerLink="/carrito">
+                <ion-icon slot="icon-only" name="cart" color="secondary"></ion-icon>
+                <ion-badge color="danger" class="carrito-numero" *ngIf="_cs.items.length > 0">
+                    {{ _cs.items.length }}
+                </ion-badge>
+            </ion-button>&nbsp; &nbsp;
+
+            <ion-button icon-left size="small" shape="round" color="tertiary" routerLink="/home">
+                <ion-icon name="home"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title>Curvas </ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="btn-group">
+        <ion-row justify-content-center>
+            <h4 style="color: #e8860e">
+                <strong>{{producto.linea}}  {{producto.color}}</strong>
+            </h4>
+        </ion-row>
+
+        <img *ngIf="producto.link_img" [src]="_DomSanitizer.bypassSecurityTrustUrl(producto.link_img)" />
+        <img *ngIf="!producto.link_img" src="assets/img/imagennodisponible.jpg" />
+        
+        <ion-grid text-center>
+            <ion-row justify-content-center class="curva_estilo">
+                <ion-col size="4">Curva</ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido" size="8">Cantidad</ion-col>
+            </ion-row>
+
+            <ion-row align-items-center *ngFor="let item of _ps.curva;let i=index">
+                <ion-col size="4">
+                    <ion-button small (click)="ver_curva(i)">
+                        {{item.curva}}
+                    </ion-button>
+                </ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido" size="3">
+                    <ion-button fill="solid" shape="round" color="dark" (click)="decrementarcantidad(item)">
+                        <ion-icon name="remove"></ion-icon>
+                    </ion-button>
+
+                </ion-col>
+
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido" size="2">
+                    <ion-input class="curva_input" text-center (ionChange)="total_curvas()" [(ngModel)]="item['cantidad']" type="number" min="1" max="1000" >
+                    </ion-input>
+                </ion-col>
+                <ion-col *ngIf="_parEmpreProv.usuario.Pedido" size="3">
+                    <ion-button fill="solid" shape="round" color="dark" class="position-relative" (click)="incrementarcantidad(item)">
+                        <ion-icon name="add"></ion-icon>
+                    </ion-button>
+
+                </ion-col>
+
+
+            </ion-row>
+
+            <ion-row *ngIf="_parEmpreProv.usuario.Pedido"  text-center>
+                <ion-col size="4">
+                    <h2> <strong>Total:</strong> </h2>
+                </ion-col>
+                <ion-col>
+                    <h4>
+                        {{total_c}}
+                    </h4>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <h5 *ngIf="mostrar_tabla">
+            <div>
+                <ion-grid text-center>
+                    <ion-row>
+                        <ion-col class="curva_tit">
+                            Curva {{tabla.cod_curva}}
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col class="curva_tit_1" text-center>Talla</ion-col>
+                        <ion-col class="curva_tit_2" text-center>Cant</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t1 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t1}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t1}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t2 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t2}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t2}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t3 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t3}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t3}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t4 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t4}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t4}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t5 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t5}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t5}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t6 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t6}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t6}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t7 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t7}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t7}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t8 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t8}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t8}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t9 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t9}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t9}}</ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="tabla.can_t10 !=0 ">
+                        <ion-col class="curva_col_1">{{tabla.tit_t10}}</ion-col>
+                        <ion-col class="curva_col_2">{{tabla.can_t10}}</ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="tabla.tot_pares !=0 ">
+                        <ion-col class="curva_total_1">Total</ion-col>
+                        <ion-col class="curva_total_2">{{tabla.tot_pares}}</ion-col>
+                    </ion-row>
+
+                </ion-grid>
+            </div>
+
+        </h5>
+
+    </div>
+
+    <ion-button *ngIf="_parEmpreProv.usuario_valido && _parEmpreProv.permite_pedido" expand="block" (click)="_cs.agregar_carrito(producto)">
+        <ion-icon name="cart"></ion-icon>
+        Agregar al carrito
+    </ion-button>
+
+</ion-content>
